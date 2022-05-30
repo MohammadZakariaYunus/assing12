@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const MyOrders = () => {
@@ -36,15 +37,20 @@ const MyOrders = () => {
                                     <div class="flex items-center space-x-3">
                                         <div class="avatar">
                                             <div class="mask mask-squircle w-12 h-12">
-                                                <img src="https://api.lorem.space/image/movie?w=200&h=280" alt="Avatar Tailwind CSS Component" />
+                                                <img src={p.img} alt="Avatar Tailwind CSS Component" />
                                             </div>
                                         </div>
                                     </div>
                                 </td>
                                 <td>{p.item}</td>
-                                <td>{p.price}</td>
                                 <td>{p.quantity}</td>
-                                <td>{p.quantity}</td>
+                                <td>
+                                    {(p.price && !p.paid) && <Link to={`/dashboard/payment/${p._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>}
+                                    {(p.price && p.paid) && <div>
+                                        <p><span className='text-success'>Paid</span></p>
+                                        <p>Transaction id: <span className='text-success'>{p.transactionId}</span></p>
+                                    </div>}
+                                </td>
                             </tr>)
                         }
 

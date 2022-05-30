@@ -4,14 +4,14 @@ import Loader from '../Shared/Loader/Loader';
 import UserRow from './UserRow';
 
 const ManageAllOrders = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user')
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/booking')
         .then(res => res.json()));
     if (isLoading) {
         return <Loader></Loader>
     }
     return (
         <div>
-            <h1 className='text-center text-3xl my-5'>Manage All Orders: {users.length}</h1>
+            <h1 className='text-center text-3xl my-5'>All Users: {users.length}</h1>
 
             <div class="overflow-x-auto">
                 <table class="table w-full">

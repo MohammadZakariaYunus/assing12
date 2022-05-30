@@ -40,28 +40,12 @@ const Purchase = () => {
 
     }
 
-
-
-
-    // function ValidateQuantity() {
-    //     var userQuantity = document.getElementById("quantityInput").value;
-    //     var qError = document.getElementById("quantity-error");
-    //     qError.innerHTML = "";
-    //     var expr = quantity;
-    //     if (userQuantity > expr) {
-    //         qError.innerHTML = "You can not order over quantity";
-    //     }
-    //     if (userQuantity < expr) {
-    //         qError.innerHTML = "You can not order under quantity";
-    //     }
-    // }
-
     return (
         <div>
             <h1 className='text-center text-3xl my-5'>Purchase</h1>
 
-            <div class="card card-side bg-base-100 shadow-xl">
-                <figure><img src="https://api.lorem.space/image/movie?w=200&h=280" alt="Movie" /></figure>
+            <div class="card w-75 bg-base-100 shadow-xl">
+                <figure><img src={img} alt="" /></figure>
                 <div class="card-body">
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
                         <input type="text" disabled value={item} className="input input-bordered w-full max-w-xs" />

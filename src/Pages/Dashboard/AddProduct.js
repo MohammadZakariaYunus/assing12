@@ -42,7 +42,7 @@ const AddProduct = () => {
                 <input type="text" name="company" placeholder="Product Company" className="input input-bordered w-full max-w-xs" />
                 <input type="text" name="url" placeholder="Product Image URL" className="input input-bordered w-full max-w-xs" />
                 <input id='quantityInput' type="number" name="quantity" placeholder="quantity" className="input input-bordered w-full max-w-xs" />
-                <textarea name="description" placeholder='Product Description' id="" cols="30" rows="10"></textarea>
+                <textarea className="textarea textarea-bordered h-18" name="description" placeholder='Product Description' id="" cols="30" rows="10"></textarea>
                 <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" />
             </form>
 

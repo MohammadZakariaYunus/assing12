@@ -20,10 +20,12 @@ const Dashboard = () => {
                 <ul class="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
                     {/* <!-- Sidebar content here --> */}
                     <li><Link to='/dashboard'>Dashboard</Link ></li>
-                    <li><Link to='/dashboard/addReview'>Review</Link></li>
+                    {admin && <li><Link to='/dashboard/addReview'>Review</Link></li>}
+                    <li><Link to='/dashboard/myOrder'>My Order</Link></li>
                     <li><Link to='/dashboard/addProduct'>Add Product</Link></li>
+                    <li><Link to='/dashboard/manageProduct'>Manage Product</Link></li>
                     <li><Link to='/dashboard/profile'>My Profile</Link></li>
-                    {admin && <li><Link to='/dashboard/manage'>Manage All Orders</Link></li>}
+                    {admin && <li><Link to='/dashboard/manage'>All Users</Link></li>}
                 </ul>
 
             </div>

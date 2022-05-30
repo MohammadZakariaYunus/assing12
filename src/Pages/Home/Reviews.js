@@ -1,40 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Review from './Review';
 
 const Reviews = () => {
-    const reviews = [
-        {
-            _id: 1,
-            img: '',
-            comments: 'Best Quality',
-            rating: 4
 
-        },
-        {
-            _id: 2,
-            img: '',
-            comments: 'Very nice',
-            rating: 4.5
+    const [reviews, setReviews] = useState([]);
 
-        },
-        {
-            _id: 3,
-            img: '',
-            comments: 'Great...',
-            rating: 5
+    useEffect(() => {
+        fetch('http://localhost:5000/review')
+            .then(res => res.json())
+            .then(data => setReviews(data));
+    }, []);
 
-        },
-        {
-            _id: 4,
-            img: '',
-            comments: 'That is awesome',
-            rating: 4.7
-
-        },
-    ]
     return (
         <div className='mx-12' >
-            <p>Customer Reviews</p>
+            <h1 className='text-center text-3xl my-5'>Customer Reviews</h1>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
 
                 {

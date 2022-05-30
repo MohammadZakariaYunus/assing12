@@ -1,17 +1,21 @@
 import React from 'react';
 import { StarIcon } from '@heroicons/react/solid'
 const Review = ({ review }) => {
-    const { comments, img, rating } = review;
+    const { comments, img, rating, name } = review;
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
-                <img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" className="rounded-xl" />
+                <img src={img} alt="Shoes" className="rounded-xl" />
             </figure>
             <div className="card-body items-center text-center">
-                <h2 className="card-title">User Name</h2>
-                <p>{comments}</p>
+                <h2 className="card-title">{name}</h2>
+                <p className='text-lg font-bold'>{comments}</p>
+                <p>
+                    {rating} rating
+                    <StarIcon className='text-yellow-300 w-7' />
+                </p>
             </div>
-        </div>
+        </div >
 
     );
 };
