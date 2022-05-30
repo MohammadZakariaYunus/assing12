@@ -8,12 +8,14 @@ const Products = () => {
     return (
         <div className='p-12'>
             <h1 className='text-center'>Our Products</h1>
+
             {
                 products.map(product => <Product
                     key={product._id}
                     product={product}
                 ></Product>)
             }
+
 
         </div >
     );
