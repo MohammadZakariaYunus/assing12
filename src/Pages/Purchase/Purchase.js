@@ -65,17 +65,20 @@ const Purchase = () => {
                 <div class="card-body">
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
                         <input type="text" disabled value={item} className="input input-bordered w-full max-w-xs" />
-                        <input type="email" name="price" disabled value={price || ''} className="input input-bordered w-full max-w-xs" />
-                        <input type="email" name="company" disabled value={company || ''} className="input input-bordered w-full max-w-xs" />
-                        {/*  */}
+
+                        <input type="number" name="price" disabled value={price || ''} className="input input-bordered w-full max-w-xs" />
+
+                        <input type="text" name="company" disabled value={company || ''} className="input input-bordered w-full max-w-xs" />
+
                         <input id='quantityInput' type="number" name="quantity" placeholder="quantity" className="input input-bordered w-full max-w-xs" />
+
                         <label class="label">
                             <span id='quantity-error' class="label-text-alt"></span>
                         </label>
 
 
                         <input type="text" name="address" placeholder='Address' className="input input-bordered w-full max-w-xs" />
-                        <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
+                        <input type="number" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
                         <textarea readOnly name="" id="" cols="30" rows="10"
                             value={description}></textarea>
                         <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" />
