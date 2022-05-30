@@ -41,15 +41,11 @@ function App() {
           </RequireAuth>
         }></Route>
 
-        <Route path='dashboard' element={
-          <RequireAuth>
-            <Dashboard></Dashboard>
-          </RequireAuth>
+        <Route path='dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>
         }>
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='addReview' element={<AddReview></AddReview>}></Route>
           <Route path='profile' element={<Profile></Profile>}></Route>
-
           <Route path='manage' element={<RequireAdmin><ManageAllOrders></ManageAllOrders></RequireAdmin>}></Route>
         </Route>
 
