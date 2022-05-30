@@ -119,9 +119,11 @@ const Register = () => {
 
                         {signInError}
                         <input className='btn w-full max-w-xs text-white' type="submit" value="Sign Up" />
+
                     </form>
                     <p><small>Already have an account? <Link className='text-primary' to="/login">Please login</Link></small></p>
                     <div className="divider">OR</div>
+
                     <button
                         onClick={() => signInWithGoogle()}
                         className="btn btn-outline"
