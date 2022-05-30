@@ -3,7 +3,8 @@ import React from 'react';
 const BusinessSummary = () => {
     return (
         <div>
-            <p>Business Summary</p>
+            <h1 className='text-center text-3xl'>Business Summary</h1>
+
         </div>
     );
 };
