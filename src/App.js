@@ -21,10 +21,10 @@ import ManageAllOrders from './Pages/Dashboard/AllUsers';
 import RequireAdmin from './Pages/Login/RequireAdmin';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import Payment from './Pages/Dashboard/Payment';
-import Product from './Pages/Home/Product';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
 import Blog from './Pages/Blog/Blog';
 import Portfolio from './Pages/Portfolio/Portfolio';
+import OurProducts from './Pages/OurProducts/OurProducts';
 
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
       <Routes class="relative">
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/review' element={<Reviews></Reviews>}></Route>
-        <Route path='/review' element={<Reviews></Reviews>}></Route>
+        <Route path='/ourProducts' element={<OurProducts></OurProducts>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
 

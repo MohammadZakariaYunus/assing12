@@ -4,15 +4,17 @@ import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useProductDetail from '../../hooks/useProductDetails';
 import { toast } from 'react-toastify';
+import { useForm } from 'react-hook-form';
 
 const Purchase = () => {
     const [user] = useAuthState(auth);
     const { productId } = useParams();
     const [product] = useProductDetail(productId);
     const { _id, item, price, company, quantity, img, description } = product;
+    const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const handleBooking = event => {
-        event.preventDefault();
+
+    const onSubmit = data => {
         const booking = {
             productId: _id,
             email: user.email,
@@ -20,9 +22,9 @@ const Purchase = () => {
             item: item,
             price: price,
             company: company,
-            quantity: event.target.quantity.value,
-            phone: event.target.phone.value,
-            address: event.target.address.value
+            quantity: data.uQuantity,
+            phone: data.phone,
+            address: data.address
         }
 
         fetch('http://localhost:5000/booking', {
@@ -36,37 +38,93 @@ const Purchase = () => {
             .then(data => {
                 toast('Your Booking Successful')
             });
-
-
-    }
+    };
 
     return (
         <div>
             <h1 className='text-center text-3xl my-5'>Purchase</h1>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+                <div className="card w-75 bg-base-100 shadow-xl">
+                    <figure><img src={img} alt="" /></figure>
+                    <div className="card-body">
+                        <h1 className='text-3xl font-bold'>Product: {item}</h1>
+                        <h1 className='text-xl font-bold'>Price: {price}</h1>
+                        <h1 className='text-xl font-bold'>Company: {company}</h1>
+                        <h1 className='text-xl font-bold'>Available Quantity: {quantity}</h1>
+                        <h1 className='text-xl '>Minimum Order Quantity: 2 pce</h1>
+                        <p className='text-xl'>{description}</p>
+                    </div>
+                </div>
+                <div className="card w-75 bg-base-100 shadow-xl">
+                    <h1 className='text-center text-3xl my-5 '>Book Now</h1>
+                    <div className="card-body">
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <label className="label">
+                                <span className="label-text">Quantity</span>
+                            </label>
+                            <input
+                                type="number"
+                                placeholder="Your Quantity"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("uQuantity", {
+                                    required: {
+                                        value: true,
+                                        message: 'Minimum is Required'
+                                    },
+                                    min: {
+                                        value: 2,
+                                        message: 'Must be 2 Pec or longer'
+                                    },
+                                    max: {
+                                        value: 400,
+                                        message: 'You can not order more then available quantity.'
+                                    }
+                                })}
+                            />
+                            <label className="label">
+                                {errors.uQuantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.uQuantity.message}</span>}
+                                {errors.uQuantity?.type === 'min' && <span className="label-text-alt text-red-500">{errors.uQuantity.message}</span>}
+                                {errors.uQuantity?.type === 'max' && <span className="label-text-alt text-red-500">{errors.uQuantity.message}</span>}
+                            </label>
+                            <label className="label">
+                                <span className="label-text">Address</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Your Address"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("address", {
+                                    required: {
+                                        value: true,
+                                        message: 'Address is Required'
+                                    }
+                                })}
+                            />
+                            <label className="label">
+                                {errors.address?.type === 'required' && <span className="label-text-alt text-red-500">{errors.address.message}</span>}
+                            </label>
 
-            <div class="card w-75 bg-base-100 shadow-xl">
-                <figure><img src={img} alt="" /></figure>
-                <div class="card-body">
-                    <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
-                        <input type="text" disabled value={item} className="input input-bordered w-full max-w-xs" />
+                            <label className="label">
+                                <span className="label-text">Phone</span>
+                            </label>
+                            <input
+                                type="number"
+                                placeholder="Your Phone"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("phone", {
+                                    required: {
+                                        value: true,
+                                        message: 'Phone is Required'
+                                    }
+                                })}
+                            />
+                            <label className="label">
+                                {errors.phone?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phone.message}</span>}
+                            </label>
 
-                        <input type="number" name="price" disabled value={price || ''} className="input input-bordered w-full max-w-xs" />
-
-                        <input type="text" name="company" disabled value={company || ''} className="input input-bordered w-full max-w-xs" />
-
-                        <input id='quantityInput' type="number" name="quantity" placeholder="quantity" className="input input-bordered w-full max-w-xs" />
-
-                        <label class="label">
-                            <span id='quantity-error' class="label-text-alt"></span>
-                        </label>
-
-
-                        <input type="text" name="address" placeholder='Address' className="input input-bordered w-full max-w-xs" />
-                        <input type="number" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
-                        <textarea readOnly name="" id="" cols="30" rows="10"
-                            value={description}></textarea>
-                        <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" />
-                    </form>
+                            <input className='btn w-full max-w-xs text-white' type="submit" value="Book Noe" />
+                        </form>
+                    </div>
                 </div>
             </div>
         </div >

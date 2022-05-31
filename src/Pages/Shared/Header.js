@@ -19,7 +19,7 @@ const Header = () => {
     const menuItem = <>
         <li className='text-white'><Link as={Link} to="/">Home</Link></li>
         <li className='text-white'><Link as={Link} to="/review">Reviews</Link></li>
-        <li className='text-white'><Link as={Link} to="/order">My Order</Link></li>
+        <li className='text-white'><Link as={Link} to="/ourProducts">Our Products</Link></li>
         <li className='text-white'><Link as={Link} to="/portfolio">Portfolio</Link></li>
         <li className='text-white'><Link as={Link} to="/blog">Blog</Link></li>
         {

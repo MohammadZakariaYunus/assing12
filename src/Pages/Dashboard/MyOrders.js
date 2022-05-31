@@ -13,7 +13,7 @@ const MyOrders = () => {
                 .then(res => res.json())
                 .then(data => setProducts(data));
         }
-    }, [user])
+    }, [user]);
 
     return (
         <div>
@@ -25,8 +25,10 @@ const MyOrders = () => {
                             <th>#</th>
                             <th>Product</th>
                             <th>Name</th>
-                            <th>Price</th>
+                            <th>Par/Price</th>
                             <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,13 +39,15 @@ const MyOrders = () => {
                                     <div class="flex items-center space-x-3">
                                         <div class="avatar">
                                             <div class="mask mask-squircle w-12 h-12">
-                                                <img src={p.img} alt="Avatar Tailwind CSS Component" />
+                                                <img src={p.img} alt="" />
                                             </div>
                                         </div>
                                     </div>
                                 </td>
                                 <td>{p.item}</td>
-                                <td>{p.quantity}</td>
+                                <td>${p.price}</td>
+                                <td>{p.quantity} pcs</td>
+                                <td>${p.quantity * p.price}</td>
                                 <td>
                                     {(p.price && !p.paid) && <Link to={`/dashboard/payment/${p._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>}
                                     {(p.price && p.paid) && <div>
