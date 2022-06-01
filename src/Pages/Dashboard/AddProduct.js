@@ -13,7 +13,6 @@ const AddProduct = () => {
             name: user.displayName,
             item: event.target.item.value,
             price: event.target.price.value,
-            company: event.target.company.value,
             quantity: event.target.quantity.value,
             description: event.target.description.value,
             img: event.target.url.value,
@@ -35,14 +34,13 @@ const AddProduct = () => {
     }
     return (
         <div>
-            <h1 className="text-center text-3xl">Add A Product</h1>
+            <h1 className="text-center text-3xl my-5">Add A Product</h1>
             <form onSubmit={handleProductAdd} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
                 <input type="text" name="item" placeholder="Product Name" className="input input-bordered w-full max-w-xs" />
                 <input type="number" name="price" placeholder="Product Price" className="input input-bordered w-full max-w-xs" />
-                <input type="text" name="company" placeholder="Product Company" className="input input-bordered w-full max-w-xs" />
                 <input type="text" name="url" placeholder="Product Image URL" className="input input-bordered w-full max-w-xs" />
                 <input id='quantityInput' type="number" name="quantity" placeholder="quantity" className="input input-bordered w-full max-w-xs" />
-                <textarea className="textarea textarea-bordered h-18" name="description" placeholder='Product Description' id="" cols="30" rows="10"></textarea>
+                <textarea className="textarea textarea-bordered w-full max-w-xs h-18" name="description" placeholder='Product Description' id="" cols="30" rows="10"></textarea>
                 <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" />
             </form>
 

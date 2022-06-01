@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import Loader from '../Shared/Loader/Loader';
 import UserRow from './UserRow';
 
-const ManageAllOrders = () => {
+const AllUsers = () => {
     const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/booking')
         .then(res => res.json()));
     if (isLoading) {
@@ -39,4 +39,4 @@ const ManageAllOrders = () => {
     );
 };
 
-export default ManageAllOrders;
+export default AllUsers;

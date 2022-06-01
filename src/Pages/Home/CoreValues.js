@@ -5,10 +5,8 @@ import signature from '../../../src/assets/core/signature.png'
 const CoreValues = () => {
     return (
         <div>
-            <div className="hero min-h-screen" style={{
-                background: `url(${hero})`
-            }}>
-                <div class="hero-overlay bg-opacity-60"></div>
+            <div className="hero max-h-96" style={{ background: `url(${hero})` }}>
+                <div class="hero-overlay"></div>
                 <div class="hero-content text-center text-neutral-content">
                     <div class="max-w-md">
                         <h1 class="mb-5 text-3xl font-bold">OUR CORE VALUES</h1>

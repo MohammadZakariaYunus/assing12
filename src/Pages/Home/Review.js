@@ -1,5 +1,4 @@
 import React from 'react';
-import { StarIcon } from '@heroicons/react/solid'
 const Review = ({ review }) => {
     const { comments, img, rating, name } = review;
     return (
@@ -10,9 +9,15 @@ const Review = ({ review }) => {
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>
                 <p className='text-lg font-bold'>{comments}</p>
+                <div class="rating">
+                    <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="rating-5" class="mask mask-star-2 bg-orange-400" />
+                    <input type="radio" name="rating-4.5" class="mask mask-star-2 bg-orange-400" />
+                </div>
                 <p>
-                    {rating} rating
-                    <StarIcon className='text-yellow-300 w-7' />
+                    {rating} star rating
                 </p>
             </div>
         </div >

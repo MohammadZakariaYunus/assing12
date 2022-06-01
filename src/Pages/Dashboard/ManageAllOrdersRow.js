@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductRow = ({ user, index, p }) => {
+const ManageAllOrdersRow = ({ user, index, p }) => {
     return (
         <div>
             <tr>
@@ -14,4 +14,4 @@ const ProductRow = ({ user, index, p }) => {
     );
 };
 
-export default ProductRow;
+export default ManageAllOrdersRow;
