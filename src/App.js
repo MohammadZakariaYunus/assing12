@@ -4,6 +4,7 @@ import Home from './Pages/Home/Home';
 import Footer from './Pages/Shared/Footer';
 import { Route, Routes } from 'react-router-dom';
 import Reviews from './Pages/Home/Reviews';
+import CoreValue from './Pages/Home/CoreValues';
 import BusinessSummary from './Pages/Home/BusinessSummary';
 import Login from './Pages/Login/Login';
 import Purchase from './Pages/Purchase/Purchase';
@@ -30,10 +31,11 @@ import OurProducts from './Pages/OurProducts/OurProducts';
 function App() {
   return (
     <div >
-      <Header class="sticky top-0 z-50"></Header>
-      <Routes class="relative">
+      <Header className="sticky top-0 z-50"></Header>
+      <Routes className="relative">
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/review' element={<Reviews></Reviews>}></Route>
+        <Route path='/coreValue' element={<CoreValue></CoreValue>}></Route>
         <Route path='/ourProducts' element={<OurProducts></OurProducts>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>

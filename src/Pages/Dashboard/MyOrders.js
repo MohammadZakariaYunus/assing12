@@ -15,11 +15,27 @@ const MyOrders = () => {
         }
     }, [user]);
 
+
+    const handleDeleteId = id => {
+        const proceed = window.confirm('Are You Sure Delete Item?');
+        if (proceed) {
+            const url = `http://localhost:5000/booking/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    const remaining = products.filter(item => item._id !== id);
+                    setProducts(remaining);
+                })
+        }
+    }
+
     return (
         <div>
             <p className='text-center my-10 font-bold text-xl'>My Orders {products.length}</p>
-            <div class="overflow-x-auto">
-                <table class="table w-full table-normal">
+            <div className="overflow-x-auto">
+                <table className="table w-full table-normal">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -36,9 +52,9 @@ const MyOrders = () => {
                             products.map((p, index) => <tr>
                                 <th>{index + 1}</th>
                                 <td>
-                                    <div class="flex items-center space-x-3">
-                                        <div class="avatar">
-                                            <div class="mask mask-squircle w-12 h-12">
+                                    <div className="flex items-center space-x-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
                                                 <img src={p.img} alt="" />
                                             </div>
                                         </div>
@@ -50,11 +66,14 @@ const MyOrders = () => {
                                 <td>${p.quantity * p.price}</td>
                                 <td>
                                     {(p.price && !p.paid) && <Link to={`/dashboard/payment/${p._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>}
+                                    <button onClick={() => handleDeleteId(p._id)} className='btn btn-xs btn-error'>Remove
+                                    </button>
                                     {(p.price && p.paid) && <div>
                                         <p><span className='text-success'>Paid</span></p>
                                         <p>Transaction id: <span className='text-success'>{p.transactionId}</span></p>
                                     </div>}
                                 </td>
+                                <td> </td>
                             </tr>)
                         }
 

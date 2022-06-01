@@ -13,8 +13,8 @@ const ManageAllOrders = () => {
         <div>
             <h1 className='text-center text-3xl my-5'>All Users: {users.length}</h1>
 
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th>#</th>

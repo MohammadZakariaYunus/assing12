@@ -16,7 +16,7 @@ const AddProduct = () => {
             company: event.target.company.value,
             quantity: event.target.quantity.value,
             description: event.target.description.value,
-            url: event.target.url.value,
+            img: event.target.url.value,
         }
 
         fetch('http://localhost:5000/products', {

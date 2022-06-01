@@ -1,4 +1,4 @@
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import React, { useEffect, useState } from 'react';
 
 const CheckoutForm = (product) => {
@@ -80,7 +80,7 @@ const CheckoutForm = (product) => {
                 product: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(``, {
+            fetch(`http://localhost:5000/booking/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
@@ -114,7 +114,7 @@ const CheckoutForm = (product) => {
                         },
                     }}
                 />
-                <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret || success}>
+                <button className='btn btn-success btn-sm mt-4' type="submit" >
                     Pay
                 </button>
             </form>

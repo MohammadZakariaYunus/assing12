@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 
 const useProductDetail = productId => {
     const [product, setProduct] = useState({});
-
     useEffect(() => {
         const url = `http://localhost:5000/products/${productId}`;
-        console.log(url);
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data));
@@ -13,5 +11,4 @@ const useProductDetail = productId => {
     }, [productId]);
     return [product]
 }
-
 export default useProductDetail;

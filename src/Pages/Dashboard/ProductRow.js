@@ -8,7 +8,7 @@ const ProductRow = ({ user, index, p }) => {
                 <td>{user.displayName}</td>
                 <td>{p.item}</td>
                 <td>{p.quantity}</td>
-                <td><button class="btn btn-xs">Remove</button></td>
+                <td><button className="btn btn-xs">Remove</button></td>
             </tr>
         </div>
     );

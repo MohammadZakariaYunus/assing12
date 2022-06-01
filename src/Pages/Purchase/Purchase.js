@@ -20,6 +20,7 @@ const Purchase = () => {
             email: user.email,
             name: user.displayName,
             item: item,
+            img: img,
             price: price,
             company: company,
             quantity: data.uQuantity,
@@ -43,8 +44,8 @@ const Purchase = () => {
     return (
         <div>
             <h1 className='text-center text-3xl my-5'>Purchase</h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
-                <div className="card w-75 bg-base-100 shadow-xl">
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
+                <div className="card w-96 bg-base-100 shadow-xl mx-auto">
                     <figure><img src={img} alt="" /></figure>
                     <div className="card-body">
                         <h1 className='text-3xl font-bold'>Product: {item}</h1>
@@ -55,7 +56,7 @@ const Purchase = () => {
                         <p className='text-xl'>{description}</p>
                     </div>
                 </div>
-                <div className="card w-75 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-base-100 shadow-xl mx-auto">
                     <h1 className='text-center text-3xl my-5 '>Book Now</h1>
                     <div className="card-body">
                         <form onSubmit={handleSubmit(onSubmit)}>
@@ -76,7 +77,7 @@ const Purchase = () => {
                                         message: 'Must be 2 Pec or longer'
                                     },
                                     max: {
-                                        value: 400,
+                                        value: 500,
                                         message: 'You can not order more then available quantity.'
                                     }
                                 })}
@@ -122,7 +123,7 @@ const Purchase = () => {
                                 {errors.phone?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phone.message}</span>}
                             </label>
 
-                            <input className='btn w-full max-w-xs text-white' type="submit" value="Book Noe" />
+                            <input className='btn w-full max-w-xs bg-primary text-white' type="submit" value="Book Now" />
                         </form>
                     </div>
                 </div>

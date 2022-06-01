@@ -14,10 +14,10 @@ const ProfileInfo = (profile) => {
 
     return (
         <div>
-            <div class="card card-compact w-96 bg-base-100 shadow-xl">
+            <div className="card card-compact w-96 bg-base-100 shadow-xl">
                 <figure><img src={user.photoURL} alt="" /></figure>
-                <div class="card-body">
-                    <h2 class="card-title">{name}</h2>
+                <div className="card-body">
+                    <h2 className="card-title">{name}</h2>
                     <h4 className='text-center text-lg'>{email}</h4>
                     <h4 className='text-center text-lg'>{age}</h4>
                     <h4 className='text-center text-lg'>{occupation}</h4>

@@ -28,24 +28,31 @@ const Profile = () => {
             .then(data => {
                 toast('Your Profile Added Successful')
             });
-
-
     }
     return (
         <div>
-            <h1 className='text-center text-3xl'>My Profile</h1>
-
-            <form onSubmit={handleProfile} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
-                <input type="text" name="name" placeholder="Your Name" className="input input-bordered w-full max-w-xs" />
-                <input type="number" name="age" placeholder="Your Age" className="input input-bordered w-full max-w-xs" />
-                <input type="text" name="occupation" placeholder="Occupation" className="input input-bordered w-full max-w-xs" />
-                <input type="text" name="education" placeholder="Education" className="input input-bordered w-full max-w-xs" />
-                <input type="number" name="phone" placeholder="Phone" className="input input-bordered w-full max-w-xs" />
-                <textarea className="textarea textarea-bordered h-18" name="description" placeholder='About You' id="" cols="30" rows="10"></textarea>
-                <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" />
-            </form>
-
-
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
+                <div class="card mx-auto w-96 bg-base-100 shadow-xl">
+                    <h1 className='text-center text-3xl my-5'>My Profile</h1>
+                    <figure><img src={user.photoURL} alt="" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">{user.displayName}</h2>
+                        <p>{user.email}</p>
+                    </div>
+                </div>
+                <div>
+                    <h1 className='text-center text-3xl my-5'>Update Profile</h1>
+                    <form onSubmit={handleProfile} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
+                        <input type="text" name="name" placeholder="Your Name" className="input input-bordered w-full max-w-xs" />
+                        <input type="number" name="age" placeholder="Your Age" className="input input-bordered w-full max-w-xs" />
+                        <input type="text" name="occupation" placeholder="Occupation" className="input input-bordered w-full max-w-xs" />
+                        <input type="text" name="education" placeholder="Education" className="input input-bordered w-full max-w-xs" />
+                        <input type="number" name="phone" placeholder="Phone" className="input input-bordered w-full max-w-xs" />
+                        <textarea className="textarea textarea-bordered w-full max-w-xs h-28" name="description" placeholder='About You' id="" cols="30" rows="10"></textarea>
+                        <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" />
+                    </form>
+                </div>
+            </div>
         </div>
     );
 };

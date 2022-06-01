@@ -30,23 +30,23 @@ const AddReview = () => {
     }
     return (
         <div>
-            <h2 class="text-center text-3xl my-10">Please Give Your Review</h2>
-            <div class="card w-96 border-2 border-indigo-200 bg-base-100 shadow-xl mx-auto">
+            <h2 className="text-center text-3xl my-10">Please Give Your Review</h2>
+            <div className="card w-96 border-2 border-indigo-200 bg-base-100 shadow-xl mx-auto">
                 <form onSubmit={handleAddReview} className='grid grid-cols-1 gap-3 justify-items-center'>
 
-                    <div class="card-body">
-                        <label class="label ">
-                            <span class="label-text">Your review</span>
+                    <div className="card-body">
+                        <label className="label ">
+                            <span className="label-text">Your review</span>
                         </label>
 
-                        <textarea class="textarea textarea-bordered w-96 h-48 max-w-xs" name='review' placeholder="..."></textarea>
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Give your rating</span>
+                        <textarea className="textarea textarea-bordered w-96 h-48 max-w-xs" name='review' placeholder="..."></textarea>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Give your rating</span>
                             </label>
-                            <input type="number" name='rating' placeholder="Rating" min={1} max={5} class="input input-bordered w-full max-w-xs" />
+                            <input type="number" name='rating' placeholder="Rating" min={1} max={5} className="input input-bordered w-full max-w-xs" />
 
-                            <div class="card-actions justify-end">
+                            <div className="card-actions justify-end">
                                 <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" />
                             </div>
                         </div>

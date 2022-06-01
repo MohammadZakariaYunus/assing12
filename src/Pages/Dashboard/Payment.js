@@ -21,23 +21,22 @@ const Payment = () => {
     if (isLoading) {
         return <Loader></Loader>
     }
-
     const totalPrice = (product.quantity * product.price)
 
     return (
         <div>
-            <div class="card w-50 mx-auto max-w-md bg-base-100 shadow-xl mt-12">
-                <div class="card-body">
+            <div className="card w-50 mx-auto max-w-md bg-base-100 shadow-xl mt-12">
+                <div className="card-body">
                     <p className="text-blue-500 text-2xl font-bold">Hello..</p>
                     <p className="text-blue-500 text-xl font-bold">{product.name}</p>
-                    <h2 class="card-title">You are Booked:<span className='text-green-500'>{product.item}</span></h2>
-                    <h2 class="text-xl">Please Pay for: <span className='text-green-500'>{product.item}</span></h2>
+                    <h2 className="card-title">You are Booked:<span className='text-green-500'>{product.item}</span></h2>
+                    <h2 className="text-xl">Please Pay for: <span className='text-green-500'>{product.item}</span></h2>
                     <p>Your product quantity: <span className='text-orange-700'>{product.quantity} </span>pcs.</p>
                     <p>Please pay: <span className='text-teal-500'>${totalPrice}.</span></p>
                 </div>
             </div>
-            <div class="card mx-auto my-8 flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
-                <div class="card-body">
+            <div className="card mx-auto my-8 flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
+                <div className="card-body">
                     <Elements stripe={stripePromise}>
                         <CheckoutForm product={product} />
                     </Elements>
