@@ -2,7 +2,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 const UserRow = ({ user, refetch, index }) => {
-    const { email, role } = user;
+    const { email, displayName, role } = user;
     const makeAdmin = () => {
         fetch(`http://localhost:5000/user/admin/${email}`, {
             method: 'PUT',
@@ -24,12 +24,29 @@ const UserRow = ({ user, refetch, index }) => {
 
             })
     }
+    const deleteUser = (email) => {
+        fetch(`http://localhost:5000/users/${email}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount) {
+                    refetch();
+                    toast.success(`User Remove.`);
+                }
+            })
+    }
+
+
+
     return (
         <tr>
             <th>{index + 1}</th>
+            <td>{displayName}</td>
             <td>{email}</td>
-            <td>{role !== 'admin' && <button onClick={makeAdmin} className="btn btn-xs">Make Admin</button>}</td>
-            <td><button className="btn btn-xs">Remove User</button></td>
+            <td>{role !== 'admin' && <button onClick={makeAdmin} className="btn btn-xs btn-info">Make Admin</button>}
+            </td>
+            <td><button className="btn btn-xs btn-error" onClick={() => deleteUser(email)} >Remove User</button></td>
         </tr>
     );
 };

@@ -42,8 +42,8 @@ const ManageProducts = () => {
                                 key={p._id}
                             >
                                 <th>{index + 1}</th>
-                                <td><div class="avatar">
-                                    <div class="w-24 rounded">
+                                <td><div className="avatar">
+                                    <div className="w-24 rounded">
                                         <img src={p.img} />
                                     </div>
                                 </div></td>

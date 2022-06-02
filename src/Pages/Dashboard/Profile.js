@@ -32,11 +32,11 @@ const Profile = () => {
     return (
         <div>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
-                <div class="card mx-auto w-96 bg-base-100 shadow-xl">
+                <div className="card mx-auto w-96 bg-base-100 shadow-xl">
                     <h1 className='text-center text-3xl my-5'>My Profile</h1>
                     <figure><img src={user.photoURL} alt="" /></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">{user.displayName}</h2>
+                    <div className="card-body">
+                        <h2 className="card-title">{user.displayName}</h2>
                         <p>{user.email}</p>
                     </div>
                 </div>

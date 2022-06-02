@@ -49,7 +49,8 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            products.map((p, index) => <tr>
+                            products.map((p, index) => <tr
+                                key={p._id}>
                                 <th>{index + 1}</th>
                                 <td>
                                     <div className="flex items-center space-x-3">

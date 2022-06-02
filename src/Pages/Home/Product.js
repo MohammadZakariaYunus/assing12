@@ -15,7 +15,7 @@ const Product = ({ product }) => {
         <div>
             <div className="card m-4 h-65 lg:card-side overflow-hidden bg-base-100 shadow-xl">
                 <figure className="px-10 p-3">
-                    <img src={img} alt="Shoes" className="rounded-md " />
+                    <img src={img} alt="" className="rounded-md " />
                 </figure>
                 <div className="card-body">
                     <h2 className=" text-3xl font-bold">{item}</h2>

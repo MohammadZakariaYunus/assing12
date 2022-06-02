@@ -67,6 +67,7 @@ const Purchase = () => {
                                 type="number"
                                 placeholder="Your Quantity"
                                 className="input input-bordered w-full max-w-xs"
+                                defaultValue="2"
                                 {...register("uQuantity", {
                                     required: {
                                         value: true,
@@ -74,7 +75,7 @@ const Purchase = () => {
                                     },
                                     min: {
                                         value: 2,
-                                        message: 'Must be 2 Pec or longer'
+                                        message: 'Must be 2 Pcs or longer'
                                     },
                                     max: {
                                         value: 500,
