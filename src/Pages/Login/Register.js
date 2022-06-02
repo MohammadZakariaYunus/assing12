@@ -118,15 +118,15 @@ const Register = () => {
                         </div>
 
                         {signInError}
-                        <input className='btn w-full max-w-xs text-white' type="submit" value="Sign Up" />
+                        <input className='btn btn-primary text-white w-full max-w-xs text-white' type="submit" value="Sign Up" />
 
                     </form>
-                    <p><small>Already have an account? <Link className='text-primary' to="/login">Please login</Link></small></p>
+                    <p><small>Already have an account? Please <Link className='text-blue-500' to="/login">login</Link></small></p>
                     <div className="divider">OR</div>
 
                     <button
                         onClick={() => signInWithGoogle()}
-                        className="btn btn-outline"
+                        className="btn btn-primary text-white"
                     >Continue with Google</button>
                 </div>
             </div>

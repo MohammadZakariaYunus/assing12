@@ -99,13 +99,13 @@ const Login = () => {
                         </div>
 
                         {signInError}
-                        <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
+                        <input className='btn btn-primary w-full max-w-xs text-white' type="submit" value="Login" />
                     </form>
-                    <p><small>New to Atlas Machinery? <Link className='text-primary' to="/register">Create New Account</Link></small></p>
+                    <p><small>New to Atlas Machinery? Create a <Link className='text-blue-500' to="/register">New Account</Link></small></p>
                     <div className="divider">OR</div>
                     <button
                         onClick={() => signInWithGoogle()}
-                        className="btn btn-outline"
+                        className="btn btn-primary text-white"
                     >Continue with Google</button>
                 </div>
             </div>

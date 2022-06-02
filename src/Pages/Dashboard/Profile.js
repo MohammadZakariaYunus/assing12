@@ -17,7 +17,7 @@ const Profile = () => {
             description: event.target.description.value,
         }
 
-        fetch('http://localhost:5000/profile', {
+        fetch('https://pacific-savannah-50768.herokuapp.com/profile', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

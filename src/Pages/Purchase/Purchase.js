@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -12,6 +12,16 @@ const Purchase = () => {
     const [product] = useProductDetail(productId);
     const { _id, item, price, company, quantity, img, description } = product;
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+    const [component, setComponent] = useState({});
+    useEffect(() => {
+        const url = `https://pacific-savannah-50768.herokuapp.com/products/${productId}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setComponent(data));
+    });
+    let available = component.quantity;
+    let min = component.minQuantity;
 
 
     const onSubmit = data => {
@@ -28,7 +38,7 @@ const Purchase = () => {
             address: data.address
         }
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://pacific-savannah-50768.herokuapp.com/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -49,7 +59,7 @@ const Purchase = () => {
                     <figure><img src={img} alt="" /></figure>
                     <div className="card-body">
                         <h1 className='text-3xl font-bold'>Product: {item}</h1>
-                        <h1 className='text-xl font-bold'>Price: {price}</h1>
+                        <h1 className='text-xl font-bold'>Price: {price}$</h1>
                         <h1 className='text-xl font-bold'>Company: {company}</h1>
                         <h1 className='text-xl font-bold'>Available Quantity: {quantity}</h1>
                         <h1 className='text-xl '>Minimum Order Quantity: 2 pce</h1>
@@ -74,11 +84,11 @@ const Purchase = () => {
                                         message: 'Minimum is Required'
                                     },
                                     min: {
-                                        value: 2,
+                                        value: min,
                                         message: 'Must be 2 Pcs or longer'
                                     },
                                     max: {
-                                        value: 500,
+                                        value: available,
                                         message: 'You can not order more then available quantity.'
                                     }
                                 })}

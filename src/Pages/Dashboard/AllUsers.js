@@ -5,7 +5,7 @@ import UserRow from './UserRow';
 
 const AllUsers = () => {
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users')
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://pacific-savannah-50768.herokuapp.com/users')
         .then(res => res.json()));
     if (isLoading) {
         return <Loader></Loader>
@@ -21,7 +21,8 @@ const AllUsers = () => {
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
+                            <th></th>
+                            <th>Email</th>
                             <th>Status</th>
                             <th colSpan="2">Action</th>
                         </tr>

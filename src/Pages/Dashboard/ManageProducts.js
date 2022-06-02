@@ -8,7 +8,7 @@ const ManageProducts = () => {
     const handleDeleteId = id => {
         const proceed = window.confirm('Are You Sure Delete Item?');
         if (proceed) {
-            const url = `http://localhost:5000/products/${id}`;
+            const url = `https://pacific-savannah-50768.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

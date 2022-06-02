@@ -7,7 +7,7 @@ const ManageAllOrders = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/booking`)
+        fetch(`https://pacific-savannah-50768.herokuapp.com/booking`)
             .then(res => res.json())
             .then(data => setProducts(data));
     }, []);

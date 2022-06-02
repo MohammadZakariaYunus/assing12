@@ -80,7 +80,7 @@ const CheckoutForm = (product) => {
                 product: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/booking/${_id}`, {
+            fetch(`https://pacific-savannah-50768.herokuapp.com/booking/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
